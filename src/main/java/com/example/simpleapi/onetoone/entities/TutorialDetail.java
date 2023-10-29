@@ -1,7 +1,10 @@
 package com.example.simpleapi.onetoone.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -18,7 +21,7 @@ public class TutorialDetail {
     private Date createdOn;
     private String createdBy;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tutorial_id", referencedColumnName = "id")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tutorial_id")
     private Tutorial tutorial;
 }

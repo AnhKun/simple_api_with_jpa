@@ -15,7 +15,7 @@ public class TutorialDetailController {
     public ITutorialDetailService detailService;
 
     @GetMapping("/details/{id}")
-    public ResponseEntity<TutorialDetailDto> getDetailById(@PathVariable long id) throws Exception {
+    public ResponseEntity<TutorialDetailDto> getDetailById(@PathVariable long id) {
         TutorialDetailDto tutorialDetailDto = detailService.getDetailById(id);
         if (tutorialDetailDto != null) {
             return new ResponseEntity<>(tutorialDetailDto, HttpStatus.OK);
@@ -27,7 +27,7 @@ public class TutorialDetailController {
     @PostMapping("/tutorials/{tutorialId}/details")
     public ResponseEntity<Void> createDetail(@PathVariable long tutorialId, @RequestBody TutorialDetailDto tutorialDetailDto) throws Exception {
         detailService.createDetail(tutorialId, tutorialDetailDto);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/details/{id}")

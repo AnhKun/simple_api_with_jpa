@@ -8,13 +8,18 @@ import java.util.List;
 
 @Component
 public class Mapper {
-    public static <T> T toModel(Object obj, Class<T> zClass) {
-        ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper;
+
+    public Mapper() {
+        modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setSourceNameTokenizer(NameTokenizers.UNDERSCORE);
-        return (T) modelMapper.map(obj, zClass);
     }
 
-    public static <T, Y> List<T> toList(List<Y> list, Class<T> zClass){
+    public <T> T toModel(Object obj, Class<T> zClass) {
+        return modelMapper.map(obj, zClass);
+    }
+
+    public <T, Y> List<T> toList(List<Y> list, Class<T> zClass) {
         return list.stream().map(e -> toModel(e, zClass)).toList();
     }
 }

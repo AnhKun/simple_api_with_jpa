@@ -1,4 +1,4 @@
-package com.example.simpleapi.onetoone.services;
+package com.example.simpleapi.onetoone.services.impl;
 
 import com.example.simpleapi.onetoone.converter.Mapper;
 import com.example.simpleapi.onetoone.dtos.TutorialDetailDto;
@@ -6,14 +6,17 @@ import com.example.simpleapi.onetoone.entities.Tutorial;
 import com.example.simpleapi.onetoone.entities.TutorialDetail;
 import com.example.simpleapi.onetoone.repositories.ITutorialDetailRepository;
 import com.example.simpleapi.onetoone.repositories.ITutorialRepository;
+import com.example.simpleapi.onetoone.services.ITutorialDetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ITutorialDetailServiceImpl implements ITutorialDetailService {
-
+/*
     @Autowired
     public ITutorialDetailRepository detailRepository;
     @Autowired
@@ -21,12 +24,22 @@ public class ITutorialDetailServiceImpl implements ITutorialDetailService {
     @Autowired
     public Mapper mapper;
 
+
+
+ */
+    private final ITutorialDetailRepository detailRepository;
+    private final ITutorialRepository tutorialRepository;
+
+    private final Mapper mapper;
+
+
+
     @Override
-    public TutorialDetailDto getDetailById(long id) throws Exception {
+    public TutorialDetailDto getDetailById(long id){
         TutorialDetail tutorialDetail = detailRepository.findById(id)
-                .orElseThrow(() -> new Exception("Not found"));
-        TutorialDetailDto tutorialDetailDto = mapper.toModel(tutorialDetail, TutorialDetailDto.class);
-        return tutorialDetailDto;
+                .orElseThrow(() -> new IllegalArgumentException("cannot find id"));
+
+        return mapper.toModel(tutorialDetail, TutorialDetailDto.class);
     }
 
     @Override

@@ -1,9 +1,10 @@
-package com.example.simpleapi.onetoone.services;
+package com.example.simpleapi.onetoone.services.impl;
 
 import com.example.simpleapi.onetoone.converter.Mapper;
 import com.example.simpleapi.onetoone.dtos.TutorialDto;
 import com.example.simpleapi.onetoone.entities.Tutorial;
 import com.example.simpleapi.onetoone.repositories.ITutorialRepository;
+import com.example.simpleapi.onetoone.services.ITutorialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

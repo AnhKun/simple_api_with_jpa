@@ -1,7 +1,10 @@
 package com.example.simpleapi.onetoone.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -16,4 +19,5 @@ public class Tutorial {
     private String title;
     private String description;
     private boolean published;
+
 }

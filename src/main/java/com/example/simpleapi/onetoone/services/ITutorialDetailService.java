@@ -4,11 +4,11 @@ import com.example.simpleapi.onetoone.dtos.TutorialDetailDto;
 
 public interface ITutorialDetailService {
 
-    public TutorialDetailDto getDetailById(long id) throws Exception;
+    TutorialDetailDto getDetailById(long id);
 
-    public void createDetail(long tutorialId, TutorialDetailDto tutorialDetailDto) throws Exception;
+    void createDetail(long tutorialId, TutorialDetailDto tutorialDetailDto) throws Exception;
 
-    public void updateDetail(long id, TutorialDetailDto tutorialDetailDto);
+    void updateDetail(long id, TutorialDetailDto tutorialDetailDto);
 
 
 }
