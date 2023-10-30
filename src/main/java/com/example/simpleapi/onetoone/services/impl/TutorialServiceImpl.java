@@ -57,7 +57,7 @@ public class TutorialServiceImpl implements ITutorialService {
 
     @Override
     public List<TutorialDto> findByPublished() {
-        List<Tutorial> tutorialList =  tutorialRepository.findByPublished(true);
+        List<Tutorial> tutorialList = tutorialRepository.findByPublished(true);
         List<TutorialDto> tutorialDtoList = mapper.toList(tutorialList, TutorialDto.class);
         return tutorialDtoList;
     }

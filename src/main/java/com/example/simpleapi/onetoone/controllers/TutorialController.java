@@ -50,9 +50,9 @@ public class TutorialController {
     }
 
     @GetMapping("/tutorials/published")
-    public ResponseEntity<List<TutorialDto>> findByPublished(){
+    public ResponseEntity<List<TutorialDto>> findByPublished() {
         List<TutorialDto> tutorialDtoList = tutorialService.findByPublished();
-        if (!tutorialDtoList.isEmpty()){
+        if (!tutorialDtoList.isEmpty()) {
             return new ResponseEntity<>(tutorialDtoList, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -60,7 +60,7 @@ public class TutorialController {
     }
 
     @DeleteMapping("/tutorial/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable long id){
+    public ResponseEntity<Void> deleteById(@PathVariable long id) {
         tutorialService.deleteTutorial(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
