@@ -6,22 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
-@Getter
+@Entity
+@Table(name = "comment")
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "tutorial_detail")
-public class TutorialDetail {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date createdOn;
-    private String createdBy;
+    private String content;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tutorial_id")
     private Tutorial tutorial;
 }

@@ -1,15 +1,17 @@
 package com.example.simpleapi.onetoone.dtos;
 
+import com.example.simpleapi.onetoone.entities.Tutorial;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
-public class TutorialDetailDto {
+public class CommentDto {
+
     private long id;
-    private Date createdOn;
-    private String createdBy;
+    private String content;
+
     private TutorialDto tutorial;
+
 }
